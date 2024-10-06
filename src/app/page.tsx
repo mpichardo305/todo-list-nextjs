@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { prisma } from "@/db"
 import { TodoItem } from "@/components/ToDoItem";
+import { Todo } from "@prisma/client";
 
 function getTodos() {
   return prisma.todo.findMany()
@@ -28,7 +29,7 @@ export default async function Home() {
       </Link>
     </header>
     <ul className="pl-4">
-      {todos.map((todo) => (
+      {todos.map((todo: Todo) => (
         <TodoItem key={todo.id} {...todo} toggleTodo={toggleTodo}/>
       ))}
     </ul>
