@@ -28,7 +28,7 @@ export default async function Home() {
       </Link>
     </header>
     <ul className="pl-4">
-      {todos.map((todo: any) => (
+      {todos.map((todo) => (
         <TodoItem key={todo.id} {...todo} toggleTodo={toggleTodo}/>
       ))}
     </ul>
